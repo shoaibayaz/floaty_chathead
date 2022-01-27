@@ -98,8 +98,7 @@ class _Home extends State<Home> {
             ),
           ),
           padding: FloatyHeadPadding.setSymmetricPadding(6, 8),
-          decoration: FloatyHeadDecoration(
-              startColor: Colors.black12, borderRadius: 25.0),
+          decoration: FloatyHeadDecoration(startColor: Colors.black12, borderRadius: 25.0),
           margin: FloatyHeadMargin(top: 4),
         ),
       ], gravity: ContentGravity.center),
@@ -165,11 +164,8 @@ class _Home extends State<Home> {
         padding: FloatyHeadPadding(left: 10, right: 10, bottom: 10, top: 10),
         width: 0,
         height: FloatyHeadButton.WRAP_CONTENT,
-        decoration: FloatyHeadDecoration(
-            startColor: Colors.white,
-            endColor: Colors.white,
-            borderWidth: 0,
-            borderRadius: 0.0),
+        decoration:
+            FloatyHeadDecoration(startColor: Colors.white, endColor: Colors.white, borderWidth: 0, borderRadius: 0.0),
       ),
       FloatyHeadButton(
         text: FloatyHeadText(
@@ -240,31 +236,18 @@ class _Home extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              ElevatedButton(child: Text('Open Floaty Chathead'), onPressed: () => floatyHead.openBubble()),
+              ElevatedButton(child: Text('Close Floaty Chathead'), onPressed: () => closeFloatyHead()),
+              ElevatedButton(child: Text('Set icon Floaty Chathead'), onPressed: () => setIcon()),
+              ElevatedButton(child: Text('Set close icon Floaty Chathead'), onPressed: () => setCloseIcon()),
               ElevatedButton(
-                  child: Text('Open Floaty Chathead'),
-                  onPressed: () => floatyHead.openBubble()),
+                  child: Text('Set close background Icon Floaty Chathead'), onPressed: () => setCloseIconBackground()),
               ElevatedButton(
-                  child: Text('Close Floaty Chathead'),
-                  onPressed: () => closeFloatyHead()),
-              ElevatedButton(
-                  child: Text('Set icon Floaty Chathead'),
-                  onPressed: () => setIcon()),
-              ElevatedButton(
-                  child: Text('Set close icon Floaty Chathead'),
-                  onPressed: () => setCloseIcon()),
-              ElevatedButton(
-                  child: Text('Set close background Icon Floaty Chathead'),
-                  onPressed: () => setCloseIconBackground()),
-              ElevatedButton(
-                  child: Text(
-                      'Set notification title to: OH MY GOD! THEY KILL KENNY!!! Floaty Chathead'),
+                  child: Text('Set notification title to: OH MY GOD! THEY KILL KENNY!!! Floaty Chathead'),
                   onPressed: () => setNotificationTitle()),
               ElevatedButton(
-                  child: Text('Set notification Icon Floaty Chathead'),
-                  onPressed: () => setNotificationIcon()),
-              ElevatedButton(
-                  child: Text('Set Custom Header into Floaty Chathead'),
-                  onPressed: () => setCustomHeader()),
+                  child: Text('Set notification Icon Floaty Chathead'), onPressed: () => setNotificationIcon()),
+              ElevatedButton(child: Text('Set Custom Header into Floaty Chathead'), onPressed: () => setCustomHeader()),
             ],
           ),
         ),
@@ -287,8 +270,7 @@ class _Home extends State<Home> {
   Future<void> setNotificationTitle() async {
     String result;
     try {
-      result = await floatyHead
-          .setNotificationTitle("OH MY GOD! THEY KILL KENNY!!!");
+      result = await floatyHead.setNotificationTitle("OH MY GOD! THEY KILL KENNY!!!");
     } on PlatformException {
       result = 'Failed to get icon.';
     }
