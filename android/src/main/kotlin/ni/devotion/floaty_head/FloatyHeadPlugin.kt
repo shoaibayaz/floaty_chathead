@@ -15,6 +15,7 @@ import android.util.Log
 import android.widget.FrameLayout
 import androidx.annotation.NonNull
 import io.flutter.embedding.engine.loader.FlutterLoader
+import io.flutter.FlutterInjector
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -313,7 +314,8 @@ class FloatyHeadPlugin : ActivityAware, FlutterPlugin, MethodChannel.MethodCallH
                 Managment.notificationIcon = bitmap
                 result = 1
             } else {
-                val assetLookupKey = FlutterLoader.getInstance().getLookupKeyForAsset(assetPath)
+                val loader: FlutterLoader = FlutterInjector.instance().flutterLoader()
+                val assetLookupKey = loader.getLookupKeyForAsset(assetPath)
                 val assetManager = activity!!.applicationContext.assets
                 val assetFileDescriptor = assetManager.openFd(assetLookupKey)
                 val inputStream = assetFileDescriptor.createInputStream()
@@ -335,7 +337,8 @@ class FloatyHeadPlugin : ActivityAware, FlutterPlugin, MethodChannel.MethodCallH
                 Managment.backgroundCloseIcon = bitmap
                 result = 1
             } else {
-                val assetLookupKey = FlutterLoader.getInstance().getLookupKeyForAsset(assetPath)
+                val loader: FlutterLoader = FlutterInjector.instance().flutterLoader()
+                val assetLookupKey = loader.getLookupKeyForAsset(assetPath)
                 val assetManager = activity!!.applicationContext.assets
                 val assetFileDescriptor = assetManager.openFd(assetLookupKey)
                 val inputStream = assetFileDescriptor.createInputStream()
@@ -357,7 +360,8 @@ class FloatyHeadPlugin : ActivityAware, FlutterPlugin, MethodChannel.MethodCallH
                 Managment.closeIcon = bitmap
                 result = 1
             } else {
-                val assetLookupKey = FlutterLoader.getInstance().getLookupKeyForAsset(assetPath)
+                val loader: FlutterLoader = FlutterInjector.instance().flutterLoader()
+                val assetLookupKey = loader.getLookupKeyForAsset(assetPath)
                 val assetManager = activity!!.applicationContext.assets
                 val assetFileDescriptor = assetManager.openFd(assetLookupKey)
                 val inputStream = assetFileDescriptor.createInputStream()
@@ -379,7 +383,8 @@ class FloatyHeadPlugin : ActivityAware, FlutterPlugin, MethodChannel.MethodCallH
                 Managment.floatingIcon = bitmap
                 result = 1
             } else {
-                val assetLookupKey = FlutterLoader.getInstance().getLookupKeyForAsset(assetPath)
+                val loader: FlutterLoader = FlutterInjector.instance().flutterLoader()
+                val assetLookupKey = loader.getLookupKeyForAsset(assetPath)
                 val assetManager = activity!!.applicationContext.assets
                 val assetFileDescriptor = assetManager.openFd(assetLookupKey)
                 val inputStream = assetFileDescriptor.createInputStream()
